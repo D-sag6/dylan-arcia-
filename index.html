@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La Exotik RY - Menú & Gestión</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="data:,">
+    <script src="/socket.io/socket.io.js"></script>
+</head>
+<body>
+
+<header class="app-header">
+    <h1 class="logo-title">La Exotik RY</h1>
+    <nav class="role-selector">
+        <button class="role-btn active" onclick="switchRole('client')">Menú / Cliente</button>
+        <button class="role-btn" onclick="switchRole('kitchen')">Cocina</button>
+        <button class="role-btn" onclick="switchRole('manager')">Administración</button>
+    </nav>
+</header>
+
+<main class="container">
+
+    <!-- CLIENTE -->
+    <section id="clientView" class="view-section active">
+        <h2>Menú</h2>
+        <div id="menuContainer"></div>
+
+        <h3>Carrito</h3>
+        <div id="cartItems"></div>
+        <p>Total: <span id="cartTotal">$0</span></p>
+        <button onclick="submitOrder()">Enviar</button>
+    </section>
+
+    <!-- COCINA -->
+    <section id="kitchenView" class="view-section" style="display:none;">
+        <h2>Cocina</h2>
+        <div id="kitchenOrders"></div>
+    </section>
+
+    <!-- ADMIN -->
+    <section id="managerView" class="view-section" style="display:none;">
+        <h2>Admin</h2>
+        <table>
+            <tbody id="managerProductsTable"></tbody>
+        </table>
+    </section>
+
+</main>
+
+<!-- SOLO UNA VEZ -->
+<script src="script.js"></script>
+
+</body>
+</html>
